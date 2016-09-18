@@ -37,7 +37,7 @@ def message():
     m = request.form.get("emergency")
     lat = request.form.get("lat")
     lng = request.form.get("lng")
-    body = m + " " + str(lat) + " " + str(lat)
+    body = "my emergency is: " + m + " my location is:" + str(lat) + " " + str(lng)
 
     print body
 
