@@ -4,6 +4,7 @@
 import os
 from jinja2 import StrictUndefined
 import twilio.twiml
+import send_sms
 
 
 from flask import Flask, render_template, redirect, request, flash, jsonify
@@ -29,14 +30,20 @@ def localhost():
 
 	return render_template("home.html", user=user)
 
-@app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
-    """Respond to incoming calls with a simple text message."""
+@app.route('/sendmessage', methods=['POST'])
+def message():
+    """sends message"""
+    
+    m = request.form.get("emergency")
+    lat = request.form.get("lat")
+    lng = request.form.get("lng")
+    body = m + " " + str(lat) + " " + str(lat)
 
-    resp = twilio.twiml.Response()
-    resp.message("Hello, Mobile Monkey")
-    return str(resp)
+    print body
 
+    send_sms.send_message(body)
+
+    return "done"
 
 
 

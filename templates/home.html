@@ -9,12 +9,21 @@ first: {{user.first}}
 
  <div id="map"></div>
 
+ <form action='/sendmessage' method='POST' id="send">
+  <label for="term"> What's your emergency? </label><br>
+  <input type="text" name="emergency" id="emergency">
+
+ <input class="btn btn-default send-message" type="submit" value="Alert">
+</form>
+
  <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-
+      var pos ={}
+      var lat
+      var lng
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat : 40, lng: -121.8863},
@@ -25,11 +34,12 @@ first: {{user.first}}
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
+            pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+            console.log(pos);
+           
             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here.');
             map.setCenter(pos);
@@ -48,6 +58,24 @@ first: {{user.first}}
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+
+      function messageSent(){
+        console.log("sent!");
+      }
+
+      function sendMessage(evt) {
+        evt.preventDefault();
+        var issue = {
+        emergency: $("#emergency").val(),
+        lat: pos[lat],
+        lng: pos[lng]
+        };
+        $.post("/sendmessage", issue, messageSent);
+        $("#emergency").val("")
+        }
+
+      $("#send").on("submit",sendMessage);
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkS5BbV03N3MrNGlYfWQZjerRk5FquVLE&callback=initMap">

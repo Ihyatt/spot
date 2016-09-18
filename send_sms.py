@@ -2,10 +2,10 @@
 from twilio.rest import TwilioRestClient
 
 # Find these values at https://twilio.com/user/account
-account_sid = "ACXXXXXXXXXXXXXXXXX"
-auth_token = "YYYYYYYYYYYYYYYYYY"
+account_sid = "AC34be416b72bcfa8b49356c52cc173a06"
+auth_token = "42f147ed33da65b3a29e9deb79513c33"
 client = TwilioRestClient(account_sid, auth_token)
 
-message = client.messages.create(to="+14085610268", from_="+15623747758",
-                                     body="Hello there!",
-                                     media_url=['https://demo.twilio.com/owl.png', 'https://demo.twilio.com/logo.png'])
+
+def send_message(body):
+	message = client.messages.create(body=body, to="+14085610268", from_="+15623747758")
