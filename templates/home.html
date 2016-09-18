@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-first: {{user.first}}
+{{user.first}} <br>
+{{user.phone}}
 <br>
 {% for contact in user.contacts %}
-{{contact.contact_first}}
+{{contact.contact_first}} {{contact.contact_last}} <br>
+{{contact.contact_phone}}
+
  {% endfor %}
 <br>
 
@@ -21,7 +24,7 @@ first: {{user.first}}
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-      var pos ={}
+      var pos = {}
       var lat
       var lng
       function initMap() {
@@ -38,8 +41,8 @@ first: {{user.first}}
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            console.log(pos);
-           
+
+            // console.log(pos);
             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here.');
             map.setCenter(pos);
@@ -58,7 +61,7 @@ first: {{user.first}}
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
-
+      console.log("here", pos);
       function messageSent(){
         console.log("sent!");
       }
@@ -66,10 +69,15 @@ first: {{user.first}}
       function sendMessage(evt) {
         evt.preventDefault();
         var issue = {
-        emergency: $("#emergency").val(),
-        lat: pos[lat],
-        lng: pos[lng]
+          emergency: $("#emergency").val(),
+          lat: pos["lat"],
+          lng: pos["lng"]
         };
+        console.log(pos);
+      
+        console.log(pos[lat]);
+        console.log(pos[lng]);
+
         $.post("/sendmessage", issue, messageSent);
         $("#emergency").val("")
         }
