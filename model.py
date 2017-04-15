@@ -38,17 +38,6 @@ class Contact(db.Model):
 
 
 ##############################################################################
-class Subscriber(db.Model):
-    __tablename__ = "subscribers"
-
-    id = db.Column(db.Integer, primary_key=True)
-    phone_number = db.Column(db.String, nullable=False)
-    subscribed = db.Column(db.Boolean, nullable=False, default=True)
-
-    def __repr__(self):
-        return '<Subscriber %r %r>' % self.phone_number, self.subscribed
-
-##############################################################################
 
  #Helper functions
 
@@ -67,5 +56,6 @@ if __name__ == "__main__":
 	from server import app
 	connect_to_db(app)
 	print "Connected to DB."
+	db.create_all()
 	
 

@@ -10,7 +10,7 @@ import send_sms
 from flask import Flask, render_template, redirect, request, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
-from model import User, Contact, connect_to_db, db
+from model import User, connect_to_db, db
 
 
 app = Flask(__name__)
@@ -39,8 +39,6 @@ def message():
     lng = request.form.get("lng")
     body = "my emergency is: " + m + " my location is:" + str(lat) + " " + str(lng)
 
-    print body
-
     send_sms.send_message(body)
 
     return "done"
@@ -49,7 +47,7 @@ def message():
 
 if __name__ == "__main__":
 
-	app.debug = True
+	app.debug = False
 	connect_to_db(app)
 	# Use the DebugToolbar
 	DebugToolbarExtension(app)
