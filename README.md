@@ -13,13 +13,13 @@
 
 * [SQLAlchemy](http://www.sqlalchemy.org/)
 * [PostgreSQL](https://www.postgresql.org/)
-* [Python](https://www.python.org/)\
+* [Python](https://www.python.org/)
 * [Flask](http://flask.pocoo.org/)
 * [Jinja](http://jinja.pocoo.org/)
 * [Javascript](https://www.javascript.com/)
 * [JQuery](https://jquery.com/)
-* [Twilio API](http://www.json.org/)
-* [Google Maps API](http://www.json.org/)
+* [Twilio API](https://www.twilio.com/?mkwid=so15S8OY0&pdv=c&pcrid=178300256561&pmt=e&pkw=twilio%20api&campaign=G_S_Brand_Alpha_NA&utm_source=google&utm_medium=cpc&utm_term=twilio+api&utm_campaign=G_S_Brand_Alpha_NA&utm_content=Brand&gclid=Cj0KEQjwicfHBRCh6KaMp4-asKgBEiQA8GH2x3wyqNz_PwY8NZiDdwfliPwG5LIQCPpNrGTZz5gkXkcaAi-U8P8HAQ)
+* [Google Maps API](https://developers.google.com/maps/)
 * [HTML/CSS](http://www.w3schools.com/html/html_css.asp)
 * [Bootstrap](http://getbootstrap.com/)
 
