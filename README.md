@@ -26,7 +26,7 @@
 ### <a name="features"></a>Features
 
 - [x] Personal information and emergency contact information repository
-- [x] Google Maps graps your geo location to send to 911
+- [x] Google Maps grabs your geo location to send to 911
 - [x] Twilio allows for fast text to 911. 
 
 #### <a name="main"></a>Main Page
