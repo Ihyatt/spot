@@ -37,8 +37,7 @@
 ##### General Setup
 * Set up and activate a python virtualenv, and install all dependencies:
     * `pip install -r requirements.txt`
-* Make sure you have PostgreSQL running. Create a new database in psql named spot:
-* `psql`
+* Make sure you have PostgreSQL running. Create a new database named spot:
   * `createdb spot`
  * Create the tables in your database:
     * `python -i model.py`
