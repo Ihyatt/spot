@@ -10,7 +10,7 @@ import send_sms
 from flask import Flask, render_template, redirect, request, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
-from model import User, connect_to_db, db
+from model import User, Contact, connect_to_db, db
 
 
 app = Flask(__name__)
