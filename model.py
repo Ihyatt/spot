@@ -1,7 +1,6 @@
 """Database for Spot"""
 
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 db = SQLAlchemy()
 
