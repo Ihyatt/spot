@@ -11,7 +11,6 @@
 
 ### <a name="technologiesused"></a>Technologies Used
 
-* [SQLAlchemy](http://www.sqlalchemy.org/)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Python](https://www.python.org/)
 * [Flask](http://flask.pocoo.org/)
